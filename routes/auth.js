@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Seller = require('../models/seller')
 const Buyer = require('../models/buyer')
-const {signupSeller, signupBuyer, loginSeller, loginBuyer, Logout} = require('../controllers/Auth.js/auth')
+const {signupSeller, signupBuyer, loginSeller, loginBuyer, Logout} = require('../controllers/Auth/auth')
 
 
 //Singup
