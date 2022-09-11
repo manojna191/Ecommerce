@@ -9,8 +9,9 @@ exports.addItem = (catchAsync(async(req,res)=>{
     if(!user){
         return res.status(401).json({ success: false, message: 'Unauthorized view' })
     }
-    const {name, price, sellerName} = req.body;
-    if(!name || !price || !sellerName){throw Error('The feidls are empty')}
+    const {name, price} = req.body;
+    req.body.sellerName = user.name;
+    if(!name || !price){return res.status(400).json({ success: false, message: 'Empty Values' })}
     req.body.seller = req.userId
     const item = await Item.create(req.body)
     user.items.push(item._id);
